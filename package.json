@@ -1,0 +1,26 @@
+{
+  "name": "my-express-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An Express.js API for OpenAI",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "serve": "firebase emulators:start --only functions"
+  },
+  "dependencies": {
+    "@langchain/community": "^0.0.17",
+    "@langchain/openai": "^0.0.10",
+    "axios": "^1.6.5",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2",
+    "langchain": "^0.1.1",
+    "mammoth": "^1.6.0",
+    "node-fetch": "^3.3.2",
+    "openai": "^4.24.1",
+    "pdf-extraction": "^1.0.2",
+    "pdf-parse": "^1.1.1",
+    "punycode": "^2.3.1",
+    "puppeteer": "^19.11.1"
+  }
+}

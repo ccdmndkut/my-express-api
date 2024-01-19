@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: My Express API
+  description: This API integrates with OpenAI's GPT-3.5-Turbo to analyze VA appeal decisions and generate detailed journal articles.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /openai/generate:
+    post:
+      summary: Generate content based on a prompt
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+              required:
+                - prompt
+      responses:
+        "200":
+          description: Article generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  article:
+                    type: string
+        "400":
+          description: Bad request
+  /openai/va:
+    get:
+      summary: Fetch text from VA appeal decisions PDFs
+      responses:
+        "200":
+          description: Text fetched successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "404":
+          description: VA appeal decisions not found
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+security:
+  - ApiKeyAuth: []
